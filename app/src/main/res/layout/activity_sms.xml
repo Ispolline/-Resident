@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@drawable/background_sms"
+    android:layout_height="match_parent"
+    android:id="@+id/rl_main"
+    xmlns:mask="http://schemas.android.com/apk/res-auto"
+    tools:context=".sms">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="1dp"
+        android:id="@+id/cgl_main"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.4"
+        android:layout_height="wrap_content"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="1dp"
+        android:id="@+id/cgl_main_text"
+        android:orientation="horizontal"
+
+        app:layout_constraintGuide_percent="0.5"
+        android:layout_height="wrap_content"/>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+
+        android:background="@drawable/register_background"
+        android:id="@+id/cra"
+android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.75"
+        app:layout_constraintWidth_percent="1"
+ app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+   app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cgl_main"
+>
+        <androidx.constraintlayout.widget.Guideline
+            android:layout_width="1dp"
+            android:id="@+id/cgl_main_text2"
+            android:orientation="horizontal"
+
+            app:layout_constraintGuide_percent="0.25"
+            android:layout_height="wrap_content"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:id="@+id/rl_1"
+      app:layout_constraintTop_toBottomOf="@+id/cgl_main_text2"
+
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                android:textColor="#fff"
+
+                android:id="@+id/txt_2"
+
+                android:text="Зарегистрируйтесь и получите полный доступ более чем к 1000 слотам!"
+
+
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="20dp"
+                android:layout_below="@+id/txt_2"
+                android:layout_marginEnd="20dp"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                android:textColor="#fff"
+                android:id="@+id/txt_1"
+
+                android:text="Для завершения регистрации, вам нужно подтвердить свой номер."
+
+
+                />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp"
+                    android:layout_below="@+id/txt_1"
+                    android:background="#dec376"
+                    android:id="@+id/ll_1"
+                    android:layout_height="wrap_content">
+                    <com.hbb20.CountryCodePicker
+                        android:id="@+id/ccp"
+                        app:ccp_contentColor="#fff"
+                        android:background="#dec376"
+                        app:ccp_autoDetectCountry="true"
+                        app:ccp_customMasterCountries="RU,UA,KZ,UZ"
+                        android:layout_gravity="center_vertical"
+                        android:layout_width="wrap_content"
+                        app:ccp_showNameCode="false"
+app:ccp_arrowColor="#fff"
+                        android:layout_height="wrap_content" />
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                    <br.com.sapereaude.maskedEditText.MaskedEditText
+                        android:id="@+id/phone_input"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+android:textColor="#fff"
+                        android:visibility="gone"
+                        android:textColorHint="#fff"
+                        android:inputType="phone"
+                        android:typeface="monospace"
+                        android:textSize="17sp"
+                        mask:allowed_chars="1234567890"
+                        mask:mask="(###)###-##-##"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:hint="1234567890"
+                        app:keep_hint="true"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Ваш номер телефона"
+                        android:textColor="#fff"
+                        android:textSize="17sp"
+                        android:id="@+id/tv_hint"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </LinearLayout>
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+android:text="Код страны вводить не нужно!"
+    android:layout_below="@+id/ll_1"
+    android:id="@+id/tv_dont_need"
+    android:layout_marginTop="10dp"
+    android:layout_centerHorizontal="true"
+    android:textSize="17sp"
+    android:textColor="#fff"
+    />
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:id="@+id/mbtn_sendcode"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:layout_below="@+id/tv_dont_need"
+                app:backgroundTint="#dec376"
+                android:textColor="#ea3426"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:text="Получить смс"
+                />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            app:layout_constraintTop_toBottomOf="@+id/cgl_main_text2"
+app:layout_constraintStart_toStartOf="parent"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:id="@+id/rl_2"
+            android:layout_height="300dp">
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+app:expandedHintEnabled="false"
+                app:hintEnabled="false"
+                app:boxCornerRadiusBottomEnd="5dp"
+                app:boxCornerRadiusBottomStart="5dp"
+
+                app:boxCornerRadiusTopEnd="5dp"
+
+                app:boxCornerRadiusTopStart="5dp"
+                android:id="@+id/til_1"
+            >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editText"
+                    android:inputType="number"
+                    android:textColorHint="#fff"
+                    android:textColor="#fff"
+
+                    android:hint="Код из смс"
+                    android:background="#dec376"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    tools:ignore="KeyboardInaccessibleWidget" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:id="@+id/mbtn_sendcode1"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                app:backgroundTint="#ea3426"
+                android:textColor="#fff"
+
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/til_1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:text="Подтвердить"
+                />
+        </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView
+        android:layout_width="wrap_content"
+
+        android:layout_height="100dp"
+        android:textSize="40sp"
+
+      android:src="@drawable/register"
+        app:layout_constraintBottom_toTopOf="@+id/cgl_main_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/tv_boing"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
